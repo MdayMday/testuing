@@ -1,0 +1,49 @@
+from pygame import mixer 
+import pygame
+
+# activate the pygame library .
+pygame.init()
+X = 352
+Y = 224
+ 
+# create the display surface object
+# of specific dimension..e(X, Y).
+scrn = pygame.display.set_mode((X, Y))
+ 
+# set the pygame window name
+pygame.display.set_caption('image')
+ 
+# create a surface object, image is drawn on it.
+imp = pygame.image.load("/home/engineering/frame44.png").convert()
+# Starting the mixer 
+mixer.init() 
+  
+# Loading the song 
+mixer.music.load("/home/engineering/Music/Katy Perry/Teenage Dream [Hidden Tracks]/02 Last Friday Night (T.G.I.F.).mp3") 
+  
+# Setting the volume 
+mixer.music.set_volume(0.7) 
+  
+# Start playing the song 
+mixer.music.play() 
+  
+# infinite loop 
+while True: 
+      
+    print("Press 'p' to pause, 'r' to resume") 
+    print("Press 'e' to exit the program") 
+    query = input("  ") 
+      
+    if query == 'p': 
+  
+        # Pausing the music 
+        mixer.music.pause()      
+    elif query == 'r': 
+  
+        # Resuming the music 
+        mixer.music.unpause() 
+    elif query == 'e': 
+  
+        # Stop the mixer 
+        mixer.music.stop() 
+        break
